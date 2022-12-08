@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useState } from "react"
-
 export default function Active(){
     const [job,setJob] = useState({})
     const [applied,setApplied] = useState([])
     function moreDetails(job){
         setJob(job)
+
     }
     useEffect(()=>{
         fetch("/applications")
@@ -13,18 +13,13 @@ export default function Active(){
         .then(data=>setApplied(data))
     },[])
     function handleChange(e){
+
         setJob({
             ...job,
             application_stage: e.target.value
         })
         console.log(job)
-    }
-    function deleteApplication(e,job){
-        e.stopPropagation()
-        fetch(`/applications/${job?.id}`,{
-            method: 'DELETE'}
-            ).then(resp=>resp.json())
-            .then(data=>setApplied(data))
+
     }
 
     function handleSubmit(e){
@@ -40,6 +35,7 @@ export default function Active(){
         })
         .then(resp=>resp.json())
         .then(data=>console.log("updated",data))
+
     }
     return (
         <>
@@ -54,10 +50,8 @@ export default function Active(){
                 <div className="jobCompany">{job.job.company_name}</div>
                 <button onClick={(e)=>deleteApplication(e,job)} className="update">Delete</button>
                 </div>
-                
             </div>
             )
-
                 })}
             </div>
          <form id="jobDetails" className={job?"show":"hide"} onSubmit={handleSubmit}>
@@ -84,13 +78,17 @@ export default function Active(){
                     <input name="appliaction_stage"  value={job?.application_stage} onChange={handleChange}/>
                     {console.log("yow",job)}
                 </div>
-              
                 <button>
                     Update Application
                 </button>
-
             </form>
             </div>
         </>
     )
 }
+
+
+
+
+
+

@@ -5,7 +5,7 @@ export default function Profile(){
     let title = "Junior software Engineer"
     const[user,setUser] = useState("")
     useEffect(()=>{
-        fetch("/users/1")
+        fetch("/me")
         .then(resp=>resp.json())
         .then(data=>setUser(data))
     },[])

@@ -93,14 +93,14 @@ a, button {
     #loginContainer{
         background-color: #F8FAFC;
         width: 100vw;
-        height: 100vh;
+        height: 80vh;
         position: relative;
         box-sizing: border-box;
     }
     
     #loginModal {
         position: absolute;
-        margin: auto;
+        margin: 50px 300px;
         width: 50%;
         height: 50%;
         inset: 0;
@@ -160,6 +160,12 @@ a, button {
         position:relative;
         top: 1rem;
         width: 80%;
+    }
+
+    #redirects {
+        width: 50%;
+        margin: auto;
+        
     }
 }
 /* ---------------------------large screen -------------------- */
@@ -241,7 +247,7 @@ a, button {
 /* -----------------------DASHBOARD ----------------------------*/
 #mainPanel{
    height: 100vh;
-   overflow: hidden;
+   overflow-y: scroll;
 }
 #sidePanel{
     background-color:#1D06F9;
