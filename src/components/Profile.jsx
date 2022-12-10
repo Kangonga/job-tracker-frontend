@@ -8,7 +8,7 @@ export default function Profile(){
     let title = "Junior software Engineer"
     const [user,setUser] = useState('')
     useEffect(()=>{
-        fetch("/users/1")
+        fetch("https://rails-production-d150.up.railway.app/users/1")
         .then(resp=>resp.json())
         .then(data=>setUser(data))
     },[])

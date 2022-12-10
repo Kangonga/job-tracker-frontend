@@ -11,7 +11,7 @@ export default function Active(){
     }
     useEffect(()=>{
         if (me){
-            fetch("/applications")
+            fetch("https://rails-production-d150.up.railway.app/applications")
             .then(resp=>resp.json())
             .then(data=>setApplied(data))
         }
@@ -25,7 +25,7 @@ export default function Active(){
     }
     function deleteApplication(e,job){
         e.stopPropagation()
-        fetch(`/applications/${job?.id}`,{
+        fetch(`https://rails-production-d150.up.railway.app/applications/${job?.id}`,{
             method: 'DELETE'}
             ).then(resp=>resp.json())
             .then(data=>setApplied(data))
@@ -33,7 +33,7 @@ export default function Active(){
 
     function handleSubmit(e){
         e.preventDefault()
-        fetch(`/applications/${job.id}`,{
+        fetch(`https://rails-production-d150.up.railway.app/applications/${job.id}`,{
             method:"PATCH",
             headers:{"content-type": "application/json"},
             body: JSON.stringify({
