@@ -12,12 +12,10 @@ export default function Login() {
   function handleSubmit(e) {
     setru(true)
     e.preventDefault();
-    fetch("https://rails-production-d150.up.railway.app/users", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*'
-
       },
       body: JSON.stringify({
         email,
@@ -29,7 +27,6 @@ export default function Login() {
         r.json().then((user) =>{
           setUser(user)
           setMe(user)
-          console.log(user)
         }
         )
       }

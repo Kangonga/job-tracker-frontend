@@ -10,7 +10,7 @@ function SignUpForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://rails-production-d150.up.railway.app/signup", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

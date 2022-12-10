@@ -16,7 +16,7 @@ export default function Jobs(){
         }
         console.log("job",job)
 
-        fetch("https://rails-production-d150.up.railway.app/applications",params)
+        fetch("/applications",params)
         .then(resp=>resp.json())
         .then(data=>console.log(data))
     }
@@ -34,7 +34,7 @@ export default function Jobs(){
     const [jobs, setJobs] = useState([])
     const [job,setJob] = useState({})
     useEffect(()=>{
-        fetch("https://rails-production-d150.up.railway.app/jobs")
+        fetch("/jobs")
         .then(resp=>resp.json())
         .then(data=>setJobs(data))
     },[])
