@@ -8,12 +8,16 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [user,setUser] = useState("");
+  const [tru, setru] = useState(false);
   function handleSubmit(e) {
+    setru(true)
     e.preventDefault();
-    fetch("/login", {
+    fetch("https://rails-production-d150.up.railway.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*'
+
       },
       body: JSON.stringify({
         email,
@@ -25,6 +29,7 @@ export default function Login() {
         r.json().then((user) =>{
           setUser(user)
           setMe(user)
+          console.log(user)
         }
         )
       }
@@ -38,7 +43,7 @@ export default function Login() {
     <>
     {console.log(me)}
     {/* {user?console.log(user):""} */}
-    {user? <Navigate to="/dashboard" />:<Loginone 
+    {tru? <Navigate to="/dashboard" />:<Loginone 
     handleSubmit={handleSubmit}
     email={email}
     password={password}
