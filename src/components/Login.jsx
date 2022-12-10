@@ -40,7 +40,7 @@ export default function Login() {
     <>
     {console.log(me)}
     {/* {user?console.log(user):""} */}
-    {tru? <Navigate to="/dashboard" />:<Loginone 
+    {user? <Navigate to="/dashboard" />:<Loginone 
     handleSubmit={handleSubmit}
     email={email}
     password={password}
